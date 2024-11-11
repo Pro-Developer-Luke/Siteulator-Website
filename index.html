@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siteulator</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +15,36 @@
   <body>
     <div class="container">
         <h1>Siteulator</h1>
+
+      <div class="tosPopUp hide" id="tosPopUp">
+        <div class="tosExit"><button onclick="TosVisibility(0)">X</button></div>       
+        <div class="tosPopUp-Content">       
+<h1>Terms of Service</h1>
+<h2>Privacy Policy</h2>
+<p>At [Your Company Name], we value your privacy. This policy outlines how we collect, use, and protect your personal information when you use our Services.</p>
+
+<h3>1. Information We Collect</h3>
+<p>We collect personal information (e.g., name, email, payment details) and usage data (e.g., IP address, device type) to improve our services.</p>
+
+<h3>2. How We Use Your Information</h3>
+<p>We use your information to provide and enhance our Services, process payments, and communicate with you.</p>
+
+<h3>3. Sharing Your Information</h3>
+<p>We do not sell your data but may share it with trusted service providers or if required by law.</p>
+
+<h3>4. Data Security</h3>
+<p>We implement reasonable security measures, but no method is completely secure.</p>
+
+<h3>5. Your Rights</h3>
+<p>You can update or delete your personal information by contacting us at [Contact Email].</p>
+
+<h3>6. Changes to This Policy</h3>
+<p>We may update this policy periodically. Check back for the latest version.</p>
+
+<p>By using our Services, you agree to this Privacy Policy.</p></div>
+    
+      </div>
+
         <div class="contactContainer">
           <div class="contactItem">
             <i class="fa-solid fa-phone"></i>
@@ -31,7 +62,7 @@
           </div>
         </div>
         <div class="sumCloud">
-            <p id="sumTotal">£10000</p>
+            <p id="sumTotal">£0</p>
          </span>
       </div>
       <div class="navContainer">
@@ -90,8 +121,11 @@
               </div>
               <label for="examples">Examples of websites you like:</label><br>
               <input type="text" id="examples" name="examples"><br><br>
+              <div class="FrmButtons">
               <button type="button" onclick="prevSection(2); selectSection(1)">Back</button>
               <button type="button" onclick="nextSection(2); selectSection(3)">Next</button>
+              </div>
+              
           </div>
 
           <div class="section" id="section3">
@@ -100,8 +134,10 @@
             <input type="text" id="contentTypes" name="contentTypes" required><br><br>
             <label for="provider">Who will provide the content?</label><br>
             <input type="text" id="provider" name="provider"><br><br>
+            <div class="FrmButtons">
             <button type="button" onclick="prevSection(3); selectSection(2)">Back</button>
             <button type="button" onclick="nextSection(3); selectSection(4)">Next</button>
+          </div>
         </div>
 
         <div class="section" id="section4">
@@ -115,8 +151,17 @@
             </div>
           <label for="userInteractions">Desired user interactions:</label><br>
           <input type="text" id="userInteractions" name="userInteractions"><br><br>
+          <div class="consentCheckbox">
+            <input type="checkbox" id="consent" name="consent" required>
+            <label for="consent">I have read and accept the privacy policy agreement available</label> 
+            <p><a onclick="TosVisibility(1)"> Here</a></p>
+          </div>
+          
+          <div class="FrmButtons">
           <button type="button" onclick="prevSection(4); selectSection(3)">Back</button>
           <button type="button" onclick="submitForm()">Submit</button>
+          </div>
+
       </div>
           </form>
         </div>

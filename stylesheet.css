@@ -10,9 +10,57 @@ body{
     font-size: 1rem;
 }
 
+
+
+.tosPopUp{
+    position: absolute;
+    padding: 100px;
+    z-index: 1;
+}
+
+.tosPopUp .tosPopUp-Content{
+    background-color: rgba(255, 255, 255, .7);
+    padding: 50px;
+    border: solid 4px #fff;
+    border-radius: 25px;
+}
+
+.tosPopUp .tosPopUp-Content h1{
+    color: black;
+    text-align: center;
+}
+
+.tosPopUp button{
+    position: absolute;
+    margin-right: 20px;
+    margin-top: 20px;
+    background-color: #e0c3fc;
+    border-radius: 5px;
+    color: #fff;
+    border: solid 3px #fff;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    justify-content: end;
+}
+
+.tosPopUp .tosExit{
+    display: flex;
+    justify-content: end;
+}
+
+.tosPopUp button:hover{
+    transition: .8s;
+    background-color: #c6e2ff;
+}
+
+.hide{
+    display: none;
+}
+
 .sumCloud{
     margin: 5px;
-    background-image: url("cloud.png");
+    background-image: url("/images/cloud.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;   
@@ -142,6 +190,22 @@ body{
     width: 60%;
 }
 
+@media only screen and (max-width: 600px) {
+    .container .formContainer .FrmButtons{
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    
+    .container .formContainer .FrmButtons button{
+    width: 80px;
+    }
+  }
+
+
+
 .container .formContainer form{
     background-color: white;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
@@ -181,7 +245,6 @@ input[type="checkbox"] {
     margin-bottom: 10px;
     padding: 10px;
     width: 150px;
-
   }
   
   /* Create a custom checkbox */
@@ -222,6 +285,54 @@ input[type="checkbox"] {
     background-color: #8ec5fc;
     border-color: #8ec5fc;
   }
+
+  .consentCheckbox input[type="checkbox"] + label {
+
+    font-size: .8rem;
+    cursor: pointer;
+    margin-bottom: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .consentCheckbox input[type="checkbox"] + label::before {
+    content: '';
+    min-width: 10px;
+    min-height: 10px;
+    border: 2px solid #e0c3fc;
+    border-radius: 4px;
+    margin-right: 10px;
+    display: inline-block;
+    transition: background-color 0.3s, border-color 0.3s;
+    position: relative;
+    top: 0px;
+  }
+
+.consentCheckbox input[type="checkbox"]:checked + label::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top:4px;
+    width: 3px;
+    height: 3px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+  .consentCheckbox label{
+    padding: 100px;
+    margin: none;
+    width: 100px;
+  }
+
+  .consentCheckbox{
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+    justify-content: start;  
+    width: auto;
+}
 
 .container form input[type="text"]{
     width: 100%;
