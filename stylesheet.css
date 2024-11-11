@@ -10,8 +10,6 @@ body{
     font-size: 1rem;
 }
 
-
-
 .tosPopUp{
     position: absolute;
     padding: 100px;
@@ -19,20 +17,25 @@ body{
 }
 
 .tosPopUp .tosPopUp-Content{
-    background-color: rgba(255, 255, 255, .7);
+    background-color: rgba(255, 255, 255, .85);
     padding: 50px;
     border: solid 4px #fff;
     border-radius: 25px;
+    max-height: 700px;
+    overflow-y: scroll;
+
+
 }
 
 .tosPopUp .tosPopUp-Content h1{
     color: black;
     text-align: center;
+    margin-top: 0;
 }
 
 .tosPopUp button{
     position: absolute;
-    margin-right: 20px;
+    margin-right: 30px;
     margin-top: 20px;
     background-color: #e0c3fc;
     border-radius: 5px;
@@ -286,8 +289,9 @@ input[type="checkbox"] {
     border-color: #8ec5fc;
   }
 
-  .consentCheckbox input[type="checkbox"] + label {
+  
 
+  .consentCheckbox input[type="checkbox"] + label, .consentCheckbox p{
     font-size: .8rem;
     cursor: pointer;
     margin-bottom: 0;
@@ -302,7 +306,7 @@ input[type="checkbox"] {
     border: 2px solid #e0c3fc;
     border-radius: 4px;
     margin-right: 10px;
-    display: inline-block;
+
     transition: background-color 0.3s, border-color 0.3s;
     position: relative;
     top: 0px;
@@ -310,7 +314,7 @@ input[type="checkbox"] {
 
 .consentCheckbox input[type="checkbox"]:checked + label::after {
     content: '';
-    position: absolute;
+    position: re;
     left: 3px;
     top:4px;
     width: 3px;
@@ -320,18 +324,11 @@ input[type="checkbox"] {
     transform: rotate(45deg);
   }
 
-  .consentCheckbox label{
-    padding: 100px;
-    margin: none;
-    width: 100px;
-  }
 
-  .consentCheckbox{
-    display: flex;
-    flex-direction: row;
-    background-color: blue;
-    justify-content: start;  
-    width: auto;
+  .consentCheckbox a{
+    margin-left: 2px;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 .container form input[type="text"]{
