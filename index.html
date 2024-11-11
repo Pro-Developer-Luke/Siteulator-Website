@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siteulator</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/7a7de007fd.js" crossorigin="anonymous"></script>
+  
+</head>
+  <body>
+    <div class="container">
+        <h1>Siteulator</h1>
+        <div class="contactContainer">
+          <div class="contactItem">
+            <i class="fa-solid fa-phone"></i>
+            <p>+44 7777777777</p>
+          </div>
+
+          <div class="contactItem">
+            <i class="fa-solid fa-envelope"></i>
+            <p>email@example.com</p>
+          </div>
+
+          <div class="contactItem">
+            <i class="fa-solid fa-house"></i>
+            <p>Street, Address, LS10 OBL</p>
+          </div>
+        </div>
+        <div class="sumCloud">
+            <p id="sumTotal">£10000</p>
+         </span>
+      </div>
+      <div class="navContainer">
+        <div class="navBtn">
+          <button id="navBtn1" class="activeNav" type="button" onclick="selectSection(1)">
+            <label>Scope</label>
+          </button>
+        </div>
+
+        <div class="navBtn">
+          <button id="navBtn2" type="button" onclick="selectSection(2)">
+            <label>Design</label>
+          </button>
+        </div>
+
+        <div class="navBtn">
+          <button id="navBtn3" type="button" onclick="selectSection(3)">
+            <label>Content</label>
+          </button>
+        </div>
+
+        <div class="navBtn">
+          <button id="navBtn4" type="button" onclick="selectSection(4)">
+            <label>Functionality</label>
+          </button>
+        </div>
+        
+      </div>
+        <div class="formContainer">
+          <form>
+            <div class="section active" id="section1">
+            <h2>Stage 1 of 4 | Project Scope</h2>
+            <label for="purpose">Purpose of the website:</label>
+            <textarea id="purpose" name="purpose" required></textarea><br><br>
+            <label for="features">Desired features (comma-separated):</label>
+            <input type="text" id="features" name="features"><br><br>
+            <label for="deadlineDate">Publishing deadline</label><br>
+            <input type="Date" id="deadlineDate" name="deadlineDate"><br><br>
+            <button type="button" onclick="nextSection(1); selectSection(2)">Next</button>
+            </div>
+
+            <div class="section" id="section2">
+              <h2>Stage 2 of 4 | Design Preferences</h2>
+              <label>Branding elements (select all that apply):</label><br>
+              <div class="checkBoxDiv">
+              <input type="checkbox" class="option" value="100" id="logo" name="branding" value="Logo">
+              <label for="logo">Logo</label><br>
+              <input type="checkbox" class="option" value="100" id="colorScheme" name="branding" value="Color Scheme">
+              <label for="colorScheme">Color Scheme</label><br>
+              <input type="checkbox" class="option" value="100" id="typography" name="branding" value="Typography">
+              <label for="typography">Typography</label><br>
+              <input type="checkbox" class="option" value="100" id="iconography" name="branding" value="Iconography">
+              <label for="iconography">Iconography</label><br>
+              <input type="checkbox" class="option" value="100" id="images" name="branding" value="Images">
+              <label for="images">Images</label><br><br>
+              </div>
+              <label for="examples">Examples of websites you like:</label><br>
+              <input type="text" id="examples" name="examples"><br><br>
+              <button type="button" onclick="prevSection(2); selectSection(1)">Back</button>
+              <button type="button" onclick="nextSection(2); selectSection(3)">Next</button>
+          </div>
+
+          <div class="section" id="section3">
+            <h2>Stage 3 of 4 | Content</h2>
+            <label for="contentTypes">Types of content needed:</label><br>
+            <input type="text" id="contentTypes" name="contentTypes" required><br><br>
+            <label for="provider">Who will provide the content?</label><br>
+            <input type="text" id="provider" name="provider"><br><br>
+            <button type="button" onclick="prevSection(3); selectSection(2)">Back</button>
+            <button type="button" onclick="nextSection(3); selectSection(4)">Next</button>
+        </div>
+
+        <div class="section" id="section4">
+          <h2>Stage 4 of 4 | Functionality</h2>
+          <label for="integrations">Required integrations:</label><br>
+          <div class="checkBoxDiv">
+            <input type="checkbox" class="option" value="100" id="loginSignup" name="branding" value="loginSignup">
+            <label for="loginSignup">Login/Signup</label><br>
+            <input type="checkbox" class="option" value="100" id="forms" name="branding" value="forms">
+            <label for="forms">Submission Forms</label><br><br>
+            </div>
+          <label for="userInteractions">Desired user interactions:</label><br>
+          <input type="text" id="userInteractions" name="userInteractions"><br><br>
+          <button type="button" onclick="prevSection(4); selectSection(3)">Back</button>
+          <button type="button" onclick="submitForm()">Submit</button>
+      </div>
+          </form>
+        </div>
+
+        
+    </div>
+
+    <footer>
+      <div class="footerContainer">
+        <div class="footerRow">
+          <div class="footerCol">
+            <h2>ABOUT</h2>
+            <ul>
+              <li>Pricing</li>
+              <li>Enquiring</li>
+              <li>About Us</li>
+            </ul>
+          </div>
+          <div class="footerCol">
+            <h2>CONTACT</h2>
+            <ul>
+              <li>07777777777</li>
+              <li>email@example.com</li>
+            </ul>
+          </div>
+          <div class="footerCol">
+            <h2>OTHER</h2>
+            <ul>
+              <li>TOS</li>
+              <li>Clients</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p>© Self-derived website created by Luke Wood | 2024</p>
+    </footer>
+    <script src="javascript.js"></script>
+  </body>
+</html>
