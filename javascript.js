@@ -1,4 +1,15 @@
-        function nextSection(section) { //Next Button
+      
+      function TosVisibility(value){
+        const tos = document.getElementById('tosPopUp');
+        if(value == 1){
+            tos.classList.remove('hide');
+        }
+        else if(value == 0){
+            tos.classList.add('hide');
+        }        
+      }
+      
+      function nextSection(section) { //Next Button
             const prevSection = document.getElementById(`section${section}`);
             const nextSection = document.getElementById(`section${section + 1}`);
 
