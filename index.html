@@ -112,104 +112,253 @@
       <div class="navContainer">
         <div class="navBtn">
           <button id="navBtn1" class="activeNav" type="button" onclick="selectSection(1)">
+            <label>About You</label>
+          </button>
+        </div>
+      
+        <div class="navBtn">
+          <button id="navBtn2" type="button" onclick="selectSection(2)">
             <label>Scope</label>
           </button>
         </div>
-
+      
         <div class="navBtn">
-          <button id="navBtn2" type="button" onclick="selectSection(2)">
+          <button id="navBtn3" type="button" onclick="selectSection(3)">
             <label>Design</label>
           </button>
         </div>
-
+      
         <div class="navBtn">
-          <button id="navBtn3" type="button" onclick="selectSection(3)">
+          <button id="navBtn4" type="button" onclick="selectSection(4)">
             <label>Content</label>
           </button>
         </div>
-
+      
         <div class="navBtn">
-          <button id="navBtn4" type="button" onclick="selectSection(4)">
+          <button id="navBtn5" type="button" onclick="selectSection(5)">
             <label>Functionality</label>
           </button>
         </div>
-        
+      
+        <div class="navBtn">
+          <button id="navBtn6" type="button" onclick="selectSection(6)">
+            <label>Hosting</label>
+          </button>
+        </div>
+      
+        <div class="navBtn">
+          <button id="navBtn7" type="button" onclick="selectSection(7)">
+            <label>Maintenance</label>
+          </button>
+        </div>
+      
+        <div class="navBtn">
+          <button id="navBtn8" type="button" onclick="selectSection(8)">
+            <label>Marketing</label>
+          </button>
+        </div>
+      
+        <div class="navBtn">
+          <button id="navBtn9" type="button" onclick="selectSection(9)">
+            <label>Breakdown</label>
+          </button>
+        </div>
       </div>
         <div class="formContainer">
           <form>
             <div class="section active" id="section1">
-            <h2>Stage 1 of 4 | Project Scope</h2>
-            <label for="purpose">Purpose of the website:</label>
-            <textarea id="purpose" name="purpose" required></textarea><br><br>
-            <label for="features">Desired features (comma-separated):</label>
-            <input type="text" id="features" name="features"><br><br>
-            <label for="deadlineDate">Publishing deadline</label><br>
-            <input type="Date" id="deadlineDate" name="deadlineDate"><br><br>
-            <button type="button" onclick="nextSection(1); selectSection(2)">Next</button>
+              <h2>Stage 1 of 9 | You & your business</h2>
+              <label for="businessName">Business Name:</label>
+              <input type="text" id="businessName" name="businessName" required><br><br>
+              
+              <label for="industry">Industry:</label>
+              <input type="text" id="industry" name="industry"><br><br>
+            
+              <label for="businessGoals">Business Goals:</label><br>
+              <textarea id="businessGoals" name="businessGoals" required></textarea><br><br>
+            
+              <label for="targetAudience">Target Audience:</label><br>
+              <textarea id="targetAudience" name="targetAudience"></textarea><br><br>
+            
+              <div class="FrmButtons">
+                <button type="button" onclick="nextSection(1); selectSection(2)">Next</button>
+              </div>
             </div>
-
+            
             <div class="section" id="section2">
-              <h2>Stage 2 of 4 | Design Preferences</h2>
+              <h2>Stage 2 of 9 | Project Scope</h2>
+              <label for="purpose">Purpose of the website:</label>
+              <textarea id="purpose" name="purpose" required></textarea><br><br>
+              
+              <label for="features">Desired features (comma-separated):</label>
+              <input type="text" id="features" name="features"><br><br>
+            
+              <label for="deadlineDate">Publishing deadline</label><br>
+              <input type="date" id="deadlineDate" name="deadlineDate"><br><br>
+            
+              <div class="FrmButtons">
+                <button type="button" onclick="prevSection(2); selectSection(1)">Back</button>
+                <button type="button" onclick="nextSection(2); selectSection(3)">Next</button>
+              </div>
+            </div>
+            
+            <div class="section" id="section3">
+              <h2>Stage 3 of 9 | Design Preferences</h2>
               <label>Branding elements (select all that apply):</label><br>
               <div class="checkBoxDiv">
-              <input type="checkbox" class="option" value="100" id="logo" name="branding" value="Logo">
-              <label for="logo">Logo</label><br>
-              <input type="checkbox" class="option" value="100" id="colorScheme" name="branding" value="Color Scheme">
-              <label for="colorScheme">Color Scheme</label><br>
-              <input type="checkbox" class="option" value="100" id="typography" name="branding" value="Typography">
-              <label for="typography">Typography</label><br>
-              <input type="checkbox" class="option" value="100" id="iconography" name="branding" value="Iconography">
-              <label for="iconography">Iconography</label><br>
-              <input type="checkbox" class="option" value="100" id="images" name="branding" value="Images">
-              <label for="images">Images</label><br><br>
+                <input type="checkbox" class="option" value="5" id="logo" name="Logo" data-category="Design">
+                <label for="logo">Logo</label>
+            
+                <input type="checkbox" class="option" value="2" id="colorPalette" name="Colour Palette" data-category="Design">
+                <label for="colorPalette">Color Palette</label>
+            
+                <input type="checkbox" class="option" value="3" id="typography" name="Typography" data-category="Design">
+                <label for="typography">Typography</label>
+            
+                <input type="checkbox" class="option" value="25" id="iconography" name="Iconography" data-category="Design">
+                <label for="iconography">Iconography</label>
+            
+                <input type="checkbox" class="option" value="10" id="images" name="Images" data-category="Design">
+                <label for="images">Images</label><br><br>
               </div>
+            
               <label for="examples">Examples of websites you like:</label><br>
               <input type="text" id="examples" name="examples"><br><br>
+            
               <div class="FrmButtons">
-              <button type="button" onclick="prevSection(2); selectSection(1)">Back</button>
-              <button type="button" onclick="nextSection(2); selectSection(3)">Next</button>
+                <button type="button" onclick="prevSection(3); selectSection(2)">Back</button>
+                <button type="button" onclick="nextSection(3); selectSection(4)">Next</button>
+              </div>
+            </div>
+            
+            <div class="section" id="section4">
+              <h2>Stage 4 of 9 | Content</h2>
+              <label for="contentTypes">Types of content needed:</label><br>
+              <input type="text" id="contentTypes" name="contentTypes" required><br><br>
+            
+              <label for="provider">Who will provide the content?</label><br>
+              <input type="text" id="provider" name="provider"><br><br>
+            
+              <div class="FrmButtons">
+                <button type="button" onclick="prevSection(4); selectSection(3)">Back</button>
+                <button type="button" onclick="nextSection(4); selectSection(5)">Next</button>
+              </div>
+            </div>
+            
+            <div class="section" id="section5">
+              <h2>Stage 5 of 9 | Functionality</h2>
+              <label>Required integrations:</label><br>
+              <div class="checkBoxDiv">
+                <input type="checkbox" class="option" value="50" id="loginSignup" name="Login/Signup" data-category="Functionality">
+                <label for="loginSignup">Login/Signup</label>
+            
+                <input type="checkbox" class="option" value="30" id="Forms" name="Forms" data-category="Functionality">
+                <label for="Forms">Forms</label>
+            
+                <input type="checkbox" class="option" value="80" id="Search" name="Search Bars" data-category="Functionality">
+                <label for="Search">Search Bars</label>
+            
+                <input type="checkbox" class="option" value="80" id="ContentManagement" name="Content Management" data-category="Functionality">
+                <label for="ContentManagement">Content Management</label>
+            
+                <input type="checkbox" class="option" value="20" id="SocialMedia" name="Social Media Integration" data-category="Functionality">
+                <label for="SocialMedia">Social Media Integration</label>
+            
+                <input type="checkbox" class="option" value="80" id="PaymentGateways" name="Payment Gateways" data-category="Functionality">
+                <label for="PaymentGateways">Payment Gateways</label><br><br>
+              </div>
+            
+              <label for="userInteractions">Desired user interactions:</label><br>
+              <input type="text" id="userInteractions" name="userInteractions"><br><br>
+            
+              <div class="FrmButtons">
+                <button type="button" onclick="prevSection(5); selectSection(4)">Back</button>
+                <button type="button" onclick="nextSection(5); selectSection(6)">Next</button>
+              </div>
+            </div>
+            
+            <div class="section" id="section6">
+              <h2>Stage 6 of 9 | Hosting & Domain</h2>
+              <label for="domainName">Desired domain name:</label><br>
+              <input type="text" id="domainName" name="domainName" required><br><br>
+            
+              <label for="hostingProvider">Preferred hosting provider:</label><br>
+              <input type="text" id="hostingProvider" name="hostingProvider"><br><br>
+            
+              <label for="sslCertificate">SSL certificate required?</label><br>
+              <input type="checkbox" id="sslCertificate" name="sslCertificate" value="Yes"> Yes<br><br>
+            
+              <div class="FrmButtons">
+                <button type="button" onclick="prevSection(6); selectSection(5)">Back</button>
+                <button type="button" onclick="nextSection(6); selectSection(7)">Next</button>
+              </div>
+            </div>
+            
+            <div class="section" id="section7">
+              <h2>Stage 7 of 9 | Maintenance & Support</h2>
+              <label for="maintenancePlan">Maintenance plan required?</label><br>
+              <input type="checkbox" id="maintenancePlan" name="maintenancePlan" value="Yes"> Yes<br><br>
+            
+              <label for="supportLevel">Level of support required:</label><br>
+              <select id="supportLevel" name="supportLevel">
+                <option value="Basic">Basic</option>
+                <option value="Standard">Standard</option>
+                <option value="Premium">Premium</option>
+              </select><br><br>
+            
+              <div class="FrmButtons">
+                <button type="button" onclick="prevSection(7); selectSection(6)">Back</button>
+                <button type="button" onclick="nextSection(7); selectSection(8)">Next</button>
+              </div>
+            </div>
+            
+            <div class="section" id="section8">
+              <h2>Stage 8 of 9 | Marketing & SEO</h2>
+              <label for="seoServices">SEO services required?</label><br>
+              <input type="checkbox" id="seoServices" name="seoServices" value="Yes"> Yes<br><br>
+            
+              <label for="marketingStrategy">Marketing strategy required?</label><br>
+              <input type="checkbox" id="marketingStrategy" name="marketingStrategy" value="Yes"> Yes<br><br>
+            
+              <div class="FrmButtons">
+                <button type="button" onclick="prevSection(8); selectSection(7)">Back</button>
+                <button type="button" onclick="nextSection(8); selectSection(9)">Next</button>
+              </div>
+            </div>
+            
+            <div class="section" id="section9">
+              <h2>Stage 9 of 9 | Breakdown</h2>
+              <div class="breakdownTable">
+                <table id="costBreakdownTable">
+                  <thead>
+                    <tr>
+                      <th>Service</th>
+                      <th>Requirements</th>
+                      <th>Cost</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="designRow">
+                      <td>Design</td>
+                      <td id="designRequirements"></td>
+                      <td id="designCost"></td>
+                    </tr>
+                    <tr id="functionalityRow">
+                      <td>Functionality</td>
+                      <td id="functionalityRequirements"></td>
+                      <td id="functionalityCost"></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
               
-          </div>
+              <div class="FrmButtons">
+                <button type="button" onclick="prevSection(9); selectSection(8)">Back</button>
+                <button type="button" onclick="submitForm();">Submit</button>
+              </div>
+            </div> 
 
-          <div class="section" id="section3">
-            <h2>Stage 3 of 4 | Content</h2>
-            <label for="contentTypes">Types of content needed:</label><br>
-            <input type="text" id="contentTypes" name="contentTypes" required><br><br>
-            <label for="provider">Who will provide the content?</label><br>
-            <input type="text" id="provider" name="provider"><br><br>
-            <div class="FrmButtons">
-            <button type="button" onclick="prevSection(3); selectSection(2)">Back</button>
-            <button type="button" onclick="nextSection(3); selectSection(4)">Next</button>
-          </div>
-        </div>
-
-        <div class="section" id="section4">
-          <h2>Stage 4 of 4 | Functionality</h2>
-          <label for="integrations">Required integrations:</label><br>
-          <div class="checkBoxDiv">
-            <input type="checkbox" class="option" value="100" id="loginSignup" name="branding" value="loginSignup">
-            <label for="loginSignup">Login/Signup</label><br>
-            <input type="checkbox" class="option" value="100" id="forms" name="branding" value="forms">
-            <label for="forms">Submission Forms</label><br><br>
-            </div>
-          <label for="userInteractions">Desired user interactions:</label><br>
-          <input type="text" id="userInteractions" name="userInteractions"><br><br>
-          
-          <div class="consentCheckbox">
-            <input type="checkbox" id="consent" name="consent" required>
-            <label for="consent">
-              I have read and accept the privacy policy agreement available
-              <a onclick="TosVisibility(1)"> here</a>
-          </label>
-          </div>
-          
-          <div class="FrmButtons">
-          <button type="button" onclick="prevSection(4); selectSection(3)">Back</button>
-          <button type="button" onclick="submitForm()">Submit</button>
-          </div>
-
-      </div>
+    </div>
           </form>
         </div>
 
