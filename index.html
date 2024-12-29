@@ -280,14 +280,27 @@
             <div class="section" id="section6">
               <h2>Stage 6 of 9 | Hosting & Domain</h2>
               <label for="domainName">Desired domain name:</label><br>
-              <input type="text" id="domainName" name="domainName" required><br><br>
+              <input type="text" id="domainName" name="domainName" required><br>
+              <div class="radioBtns">
+                <input class="radBtn" type="radio" id="dnsNo" name="domainName" value="0">
+                <label for="dnsNo">I already own this domain.</label>
+                
+                <input class="radBtn" type="radio" id="dnsYes" name="domainName" value="15">
+                <label for="dnsYes">I do not own this domain.</label>
+              </div><br>
             
               <label for="hostingProvider">Preferred hosting provider:</label><br>
               <input type="text" id="hostingProvider" name="hostingProvider"><br><br>
-            
-              <label for="sslCertificate">SSL certificate required?</label><br>
-              <input type="checkbox" id="sslCertificate" name="sslCertificate" value="Yes"> Yes<br><br>
-            
+              
+              <label>SSL certificate</label>
+            <div class="radioBtns">
+              <input class="radBtn" type="radio" id="sslYes" name="sslCertificate" value="79">
+              <label for="sslYes">I do not have an SSL certificate.</label>
+              
+              <input class="radBtn" type="radio" id="sslNo" name="sslCertificate" value="0">
+              <label for="sslNo">I already have an SSL certificate.</label>
+            </div>
+
               <div class="FrmButtons">
                 <button type="button" onclick="prevSection(6); selectSection(5)">Back</button>
                 <button type="button" onclick="nextSection(6); selectSection(7)">Next</button>
@@ -347,6 +360,16 @@
                       <td>Functionality</td>
                       <td id="functionalityRequirements"></td>
                       <td id="functionalityCost"></td>
+                    </tr>
+                    <tr id="securityRow">
+                      <td>Security</td>
+                      <td id="securityRequirements"></td>
+                      <td id="securityCost"></td>
+                    </tr>
+                    <tr id="hostingRow">
+                      <td>Hosting</td>
+                      <td id="hostingRequirements"></td>
+                      <td id="hostingCost"></td>
                     </tr>
                   </tbody>
                 </table>

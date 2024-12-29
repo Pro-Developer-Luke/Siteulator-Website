@@ -181,7 +181,6 @@ input[type="checkbox"] + label:hover::before {
     margin-right: 10px;
     transition: background-color 0.3s, border-color 0.3s;
     position: relative;
-    top: -0.6px;
 }
 
 .consentCheckbox input[type="checkbox"]:checked + label::after {
@@ -194,6 +193,57 @@ input[type="checkbox"] + label:hover::before {
     border: solid white;
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
+}
+
+
+
+input.radBtn[type="radio"] {
+    display: none; /* Hide the default radio button */
+}
+
+/* Style the visual custom radio button */
+input.radBtn[type="radio"] + label {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+input.radBtn[type="radio"] + label::before {
+    content: '';
+    min-width: 10px;
+    min-height: 10px;
+    border: 2px solid #e0c3fc; /* Border color for unselected state */
+    border-radius: 50%; /* Make it circular */
+    margin-right: 10px;
+    display: inline-block;
+    transition: background-color 0.3s, border-color 0.3s;
+    position: relative;
+}
+
+/* When the radio button is selected */
+input.radBtn[type="radio"]:checked + label::before {
+    background-color: #8ec5fc; /* Selected background color */
+    border-color: #8ec5fc; /* Selected border color */
+}
+
+/* Inner dot to represent the check state (like the "checked" mark) */
+input.radBtn[type="radio"]:checked + label::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%; /* Inner circle */
+    background-color: white; /* Color of the inner dot when checked */
+}
+
+/* Hover effect for the radio button */
+input.radBtn[type="radio"] + label:hover::before {
+    background-color: #8ec5fc; /* Hover background */
+    border-color: #8ec5fc; /* Hover border color */
 }
 
 /* Navigation */
