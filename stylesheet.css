@@ -123,7 +123,7 @@ input[type="checkbox"] + label::before {
     display: inline-block;
     transition: background-color 0.3s, border-color 0.3s;
     position: relative;
-    top: 1px;
+    top: 0px;
 }
 
 input[type="checkbox"]:checked + label::before {
@@ -135,7 +135,7 @@ input[type="checkbox"]:checked + label::after {
     content: '';
     position: absolute;
     left: 16px;
-    top: 15px;
+    top: 13px;
     width: 8px;
     height: 12px;
     border: solid white;
@@ -157,45 +157,41 @@ input[type="checkbox"] + label:hover::before {
 
 .consentCheckbox input[type="checkbox"] + label,
 .consentCheckbox p {
-    font-size: .8rem;
-    cursor: pointer;
-    margin-bottom: 0;
-    padding: 0;
+    font-size: 1rem;
+    cursor: pointer;    
     width: auto;
+    padding: 0;
 }
 
 .consentCheckbox span{
-    font-size: .8rem;
+    font-size: 1rem;
     cursor: pointer;
-
     text-decoration: underline;
     font-weight: bold;
 }
 
 .consentCheckbox input[type="checkbox"] + label::before {
     content: '';
-    min-width: 10px;
-    min-height: 10px;
+    min-width: 12px;
+    min-height: 12px;
     border: 2px solid #e0c3fc;
     border-radius: 4px;
     margin-right: 10px;
     transition: background-color 0.3s, border-color 0.3s;
-    position: relative;
+    
 }
 
 .consentCheckbox input[type="checkbox"]:checked + label::after {
     content: '';
-    position: re;
     left: 3px;
-    top: 4px;
-    width: 3px;
-    height: 3px;
+    top: 5px;
+    width: 5px;
+    height: 5px;
     border: solid white;
     border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
+    transform: rotate(35deg);
+    font-size: 100px;
 }
-
-
 
 input.radBtn[type="radio"] {
     display: none; /* Hide the default radio button */
@@ -355,6 +351,10 @@ footer p {
     font-weight: 800;
 }
 
+.footerContainer a {
+    cursor: pointer;
+}
+
 /* ToS PopUp */
 .tosPopUp {
     position: absolute;
@@ -369,6 +369,7 @@ footer p {
     border-radius: 25px;
     max-height: 700px;
     overflow-y: scroll;
+    
 }
 
 .tosPopUp .tosPopUp-Content h1 {
@@ -404,6 +405,39 @@ footer p {
 .hide {
     display: none;
 }
+
+.tosPopUp-Content {
+
+}
+
+/* Custom WebKit Scrollbar Styling */
+.tosPopUp-Content::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+.tosPopUp-Content::-webkit-scrollbar {
+    margin-top: 8px; /* Adjust top space */
+    margin-bottom: 8px; /* Adjust bottom space */
+  }
+
+.tosPopUp-Content::-webkit-scrollbar-track {
+  background: transparent; /* Invisible track */
+}
+
+.tosPopUp-Content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc); /* Gradient for the thumb */
+  border-radius: 6px; /* Rounded scrollbar thumb */
+  border: 3px solid transparent; /* Optional space around the thumb */
+  background-clip: padding-box; /* Ensure the gradient stays inside the thumb */
+}
+
+.tosPopUp-Content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #d3aefc, #7bb1fc); /* Darker gradient on hover */
+}
+
+/* Firefox Custom Scrollbar Styling */
+
+
 
 /* SumCloud */
 .sumCloud {
