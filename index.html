@@ -22,7 +22,7 @@
         <h1>Siteulator</h1>
 
       <div class="tosPopUp hide" id="tosPopUp">
-        <div class="tosExit"><button onclick="TosVisibility(0)">X</button></div>       
+        <div class="tosExit"><button onclick="tosVisibility(0)">X</button></div>       
         <div class="tosPopUp-Content">       
           <h1>Privacy Policy</h1>          
           <p>At <strong>Siteulator</strong>, we are committed to protecting your privacy. This Privacy Policy outlines how we collect, use, store, and share your personal information when you use our services. By submitting your details or interacting with our platform, you agree to the terms of this Privacy Policy.</p>
@@ -92,12 +92,12 @@
         <div class="contactContainer">
           <div class="contactItem">
             <i class="fa-solid fa-phone"></i>
-            <p>+44 7777777777</p>
+            <p>+44 7339928443</p>
           </div>
 
           <div class="contactItem">
             <i class="fa-solid fa-envelope"></i>
-            <p>email@example.com</p>
+            <p>contact@siteulator.co.uk</p>
           </div>
 
           <div class="contactItem">
@@ -374,6 +374,13 @@
                   </tbody>
                 </table>
               </div>
+
+              <div class="consentCheckbox">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">
+                  I have read and accept the privacy policy agreement available&nbsp;<span onclick="tosVisibility(1)">here</span>
+              </label>
+              </div>
               
               <div class="FrmButtons">
                 <button type="button" onclick="prevSection(9); selectSection(8)">Back</button>
@@ -409,7 +416,7 @@
           <div class="footerCol">
             <h2>OTHER</h2>
             <ul>
-              <li>TOS</li>
+              <li><a onclick="tosVisibility(1)">TOS</a></li>
               <li>Clients</li>
             </ul>
           </div>
