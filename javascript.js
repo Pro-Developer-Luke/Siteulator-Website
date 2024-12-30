@@ -1,177 +1,130 @@
-      
-      function TosVisibility(value){
-        const tos = document.getElementById('tosPopUp');
-        if(value == 1){
-            tos.classList.remove('hide');
-        }
-        else if(value == 0){
-            tos.classList.add('hide');
-        }        
+// Toggle visibility of an element by adding or removing the 'hide' class
+function tosVisibility(value){
+  const tos = document.getElementById('tosPopUp');
+  if(value == 1){
+      tos.classList.remove('hide');
+  }
+  else if(value == 0){
+      tos.classList.add('hide');
+  }        
+}
+
+// Navigate between sections (Next/Back buttons)
+function navigateSection(currentSection, direction) {
+  const current = document.getElementById(`section${currentSection}`);
+  const target = document.getElementById(`section${currentSection + direction}`);
+  if (target) {
+      current.classList.remove('active'); // Hide current section
+      target.classList.add('active'); // Show target section
+  }
+}
+
+// Select a specific section using the navigation bar
+function selectSection(section) {
+  const sections = document.querySelectorAll('.section'); // All sections
+  const buttons = document.querySelectorAll('.navBtn button'); // All navigation buttons
+
+  // Remove the active class from all sections and buttons
+  sections.forEach(sec => sec.classList.remove('active'));
+  buttons.forEach(btn => btn.classList.remove('activeNav'));
+
+  // Add the active class to the selected section and button
+  document.getElementById(`section${section}`).classList.add('active');
+  document.getElementById(`navBtn${section}`).classList.add('activeNav');
+}
+
+// Simulate form submission
+function submitForm() {
+  alert('Form submitted!');
+}
+
+// Select elements for checkboxes, radio buttons, and table cells
+const checkboxes = document.querySelectorAll('.option');
+const sslRadios = document.querySelectorAll('input[name="sslCertificate"]');
+const dnsRadios = document.querySelectorAll('input[name="domainName"]');
+
+const totalDisplay = document.getElementById('sumTotal');
+
+// Map table rows to simplify updates
+const rows = {
+  Design: {
+      requirementsCell: document.getElementById('designRequirements'),
+      costCell: document.getElementById('designCost')
+  },
+  Functionality: {
+      requirementsCell: document.getElementById('functionalityRequirements'),
+      costCell: document.getElementById('functionalityCost')
+  },
+  Security: {
+      requirementsCell: document.getElementById('securityRequirements'),
+      costCell: document.getElementById('securityCost')
+  },
+  Hosting: {
+      requirementsCell: document.getElementById('hostingRequirements'),
+      costCell: document.getElementById('hostingCost')
+  }
+};
+
+// Calculate and update the total cost
+function updateTotal() {
+  // Sum up the selected checkbox values
+  let total = Array.from(checkboxes)
+      .filter(checkbox => checkbox.checked)
+      .reduce((sum, checkbox) => sum + parseInt(checkbox.value), 0);
+
+  // Add costs for selected SSL and DNS options
+  if (document.getElementById('sslYes').checked) total += 79;
+  if (document.getElementById('dnsYes').checked) total += 15;
+
+  // Update the total display
+  totalDisplay.textContent = `£${total}`;
+}
+
+// Update the breakdown table with selected items and costs
+function updateTable() {
+  // Initialize an object to store table data
+  const tableData = {
+      Design: { requirements: [], costs: [] },
+      Functionality: { requirements: [], costs: [] },
+      Security: { requirements: [], costs: [] },
+      Hosting: { requirements: [], costs: [] }
+  };
+
+  // Loop through checkboxes to populate design and functionality rows
+  checkboxes.forEach(checkbox => {
+      if (checkbox.checked) {
+          const category = checkbox.dataset.category; // "Design" or "Functionality"
+          tableData[category].requirements.push(checkbox.name); // Requirement name
+          tableData[category].costs.push(`£${parseFloat(checkbox.value).toFixed(2)}`); // Cost
       }
-      
-      function nextSection(section) { // Next Button
-        const prevSection = document.getElementById(`section${section}`);
-        const nextSection = document.getElementById(`section${section + 1}`);
-      
-        if (nextSection) {
-          prevSection.classList.remove('active');
-          nextSection.classList.add('active');
-        }
-      }
-      
-      function prevSection(section) { // Back Button
-        const prevSection = document.getElementById(`section${section}`);
-        const previousSection = document.getElementById(`section${section - 1}`);
-      
-        if (previousSection) {
-          prevSection.classList.remove('active');
-          previousSection.classList.add('active');
-        }
-      }
-      
-      function selectSection(section) { // Navigation Bar
-        newSection = document.getElementById(`section${section}`);
-        
-        // Get all sections and buttons dynamically
-        const sections = Array.from(document.querySelectorAll('.section'));
-        const buttons = Array.from(document.querySelectorAll('.navBtn button'));
-      
-        // Remove the active class from all sections and buttons
-        sections.forEach((sec) => sec.classList.remove('active'));
-        buttons.forEach((btn) => btn.classList.remove('activeNav'));
-      
-        // Add the active class to the selected section and button
-        newSection.classList.add('active');
-        document.getElementById(`navBtn${section}`).classList.add('activeNav');
-      }
+  });
 
-        function submitForm() { 
-            alert('Form submitted!');
-        }
+  // Add SSL and DNS options to their respective rows if selected
+  if (document.getElementById('sslYes').checked) {
+      tableData.Security.requirements.push('SSL Certificate');
+      tableData.Security.costs.push('£79.00');
+  }
+  if (document.getElementById('dnsYes').checked) {
+      tableData.Hosting.requirements.push('Domain Name');
+      tableData.Hosting.costs.push('£15.00');
+  }
 
-        const checkboxes = document.querySelectorAll('.option');
-        const totalDisplay = document.getElementById('sumTotal');
-        const designRequirementsCell = document.getElementById('designRequirements');
-        const designCostCell = document.getElementById('designCost');
-        const functionalityRequirementsCell = document.getElementById('functionalityRequirements');
-        const functionalityCostCell = document.getElementById('functionalityCost');
-        const securityRequirementsCell = document.getElementById('securityRequirements');
-        const securityCostCell = document.getElementById('securityCost');
-        const hostingCostCell = document.getElementById('hostingCost');
-        const hostingRequirementsCell = document.getElementById('hostingRequirements');
-        
+  // Update each row dynamically
+  Object.entries(rows).forEach(([category, { requirementsCell, costCell }]) => {
+      const { requirements, costs } = tableData[category];
+      requirementsCell.innerHTML = requirements.join('<br>') || 'None'; // Display requirements or "None"
+      costCell.innerHTML = costs.join('<br>') || '£0.00'; // Display costs or "£0.00"
+  });
+}
 
-        const sslRadios = document.querySelectorAll('input[name="sslCertificate"]');
-        const dnsRadios = document.querySelectorAll('input[name="domainName"]');
-        
-        function updateTotal() {
-            let total = 0;
-        
-            checkboxes.forEach((checkbox) => {
-                if (checkbox.checked) {
-                    total += parseInt(checkbox.value);
-                }
-            });
+// Attach event listeners to all inputs (checkboxes, SSL, DNS radios)
+[...checkboxes, ...sslRadios, ...dnsRadios].forEach(input => {
+  input.addEventListener('change', () => {
+      updateTotal(); // Recalculate total cost
+      updateTable(); // Refresh the table
+  });
+});
 
-            sslRadios.forEach((radio) => {
-              if (radio.checked && radio.id === 'sslYes') {
-                  total += parseInt(radio.value);
-              }
-          });
-
-          dnsRadios.forEach((radio) => {
-            if (radio.checked && radio.id === 'dnsYes') {
-                total += parseInt(radio.value);
-            }
-        });
-        
-            totalDisplay.textContent = `£${total}`;
-        }
-
-        // Adds event listeners to all checkboxes
-        checkboxes.forEach((checkbox) => {
-          checkbox.addEventListener('change', () => {
-              updateTotal();
-              updateTable();
-          });
-      });
-
-        sslRadios.forEach((radio) => {
-          radio.addEventListener('change', () => {
-              updateTotal(); // Update total with SSL
-              updateTable(); // Update the table to reflect the SSL change
-          });
-      });
-
-      dnsRadios.forEach((radio) => {
-        radio.addEventListener('change', () => {
-            updateTotal(); // Update total with SSL
-            updateTable(); // Update the table to reflect the SSL change
-        });
-    });
-
-        function updateTable() {
-            // Initialize placeholders for content
-            let designRequirements = [];
-            let designCosts = [];
-          
-            let functionalityRequirements = [];
-            let functionalityCosts = [];
-
-            let securityRequirements = [];
-            let securityCosts = [];
-
-            let hostingRequirements = [];
-            let hostingCosts = [];
-          
-            // Loop through checkboxes
-            checkboxes.forEach((checkbox) => {
-              if (checkbox.checked) {
-                // Check the category of the checkbox
-                const category = checkbox.dataset.category; // "Design" or "Functionality"
-                const requirement = checkbox.name; // Name of the requirement
-                const cost = parseFloat(checkbox.value); // Cost value
-          
-                if (category === 'Design') {
-                  designRequirements.push(requirement);
-                  designCosts.push(`£${cost.toFixed(2)}`);
-                } else if (category === 'Functionality') {
-                  functionalityRequirements.push(requirement);
-                  functionalityCosts.push(`£${cost.toFixed(2)}`);
-                }
-              }
-            });
-
-            sslRadios.forEach((radio) => {
-              if (radio.checked && radio.id === 'sslYes') {
-                  securityRequirements.push('SSL Certificate');
-                  securityCosts.push('£79.00');
-              }
-          });
-
-          dnsRadios.forEach((radio) => {
-            if (radio.checked && radio.id === 'dnsYes') {
-                hostingRequirements.push('Domain Name');
-                hostingCosts.push('£15.00');
-            }
-        });
-          
-            // Update the Design row
-            designRequirementsCell.innerHTML = designRequirements.join('<br>') || 'None';
-            designCostCell.innerHTML = designCosts.join('<br>') || '£0.00';
-          
-            // Update the Functionality row
-            functionalityRequirementsCell.innerHTML = functionalityRequirements.join('<br>') || 'None';
-            functionalityCostCell.innerHTML = functionalityCosts.join('<br>') || '£0.00';
-          
-            securityRequirementsCell.innerHTML = securityRequirements.join('<br>') || 'None';
-            securityCostCell.innerHTML = securityCosts.join('<br>') || '£0.00';
-
-            hostingRequirementsCell.innerHTML = hostingRequirements.join('<br>') || 'None';
-            hostingCostCell.innerHTML = hostingCosts.join('<br>') || '£0.00';
-
-          }
-          
-          
-        
-        
+// Initialize total and table on load
+updateTotal();
+updateTable();
